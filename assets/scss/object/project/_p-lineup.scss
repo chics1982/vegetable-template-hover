@@ -1,0 +1,162 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-lineup
+----------------------------------------*/
+.p-lineup {
+  padding: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+  background: var(--c-background);
+  @include under-medium {
+    padding-inline: unset;
+  }
+}
+
+.p-lineup__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.p-lineup__en {
+  font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  color: var(--c-main);
+  position: relative;
+  line-height: 1;
+  @include under-medium {
+    text-align: center;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--c-main);
+    z-index: 1;
+  }
+  span {
+    display: inline-block;
+    background: var(--c-background);
+    position: relative;
+    z-index: 2;
+    margin-left: 100px;
+    padding-inline: 20px;
+    @include under-medium {
+      margin-left: unset;
+    }
+  }
+}
+
+.p-lineup__ja-wrapper {
+  margin-top: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+  @include under-medium {
+    width: fit-content;
+    margin-inline: auto;
+  }
+}
+
+.p-lineup__ja {
+  display: inline-block;
+  font-size: vwClamp(20, 25, $bp-xx-small, $bp-xx-large);
+  background: var(--c-white);
+  color: var(--c-main);
+  border: 2px solid var(--c-main);
+  padding: 10px 20px;
+  width: min(100%, 300px);
+  text-align: center;
+}
+
+.p-lineup__list {
+  margin-top: vwClamp(20, 50, $bp-xx-small, $bp-xx-large);
+  width: fit-content;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: vwClamp(0, 30, $bp-medium, $bp-xx-large);
+  @include under-medium {
+    width: 100%;
+  }
+}
+
+.p-lineup__item {
+}
+
+.p-lineup__link {
+  width: 100%;
+}
+
+.p-lineup__item-inner {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: vwClamp(100, 200, $bp-medium, $bp-xx-large);
+  @include under-medium {
+    flex-direction: column;
+    align-items: center;
+    padding-right: unset;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    translate: 0 -50%;
+    width: 93%;
+    height: 1px;
+    border-bottom: 1px dashed var(--c-main);
+    @include under-medium {
+      border-bottom: none;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    translate: 0 -50%;
+    width: 2em;
+    aspect-ratio: 1/1;
+    background: var(--c-main);
+    clip-path: polygon(100% 10%, 0 10%, 50% 100%);
+    @include under-medium {
+      background: transparent;
+    }
+  }
+}
+
+.p-lineup__label {
+  display: inline-block;
+  font-size: vwClamp(16, 20, $bp-xx-small, $bp-xx-large);
+  color: var(--c-main);
+  padding: 20px 20px 20px 0;
+  border-right: 1px solid var(--c-main);
+  background: var(--c-background);
+  position: relative;
+  z-index: 2;
+  @include under-medium {
+    display: block;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--c-main);
+    padding-bottom: 10px;
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+
+.p-lineup__title {
+  padding: 20px;
+  font-size: vwClamp(20, 25, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  background: var(--c-background);
+  position: relative;
+  z-index: 2;
+  @include under-medium {
+    padding: 20px 0;
+  }
+  span {
+    display: inline-block;
+    font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+    font-weight: 400;
+  }
+}

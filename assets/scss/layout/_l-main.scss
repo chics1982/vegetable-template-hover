@@ -1,0 +1,10 @@
+@use "../foundation/index" as *;
+/*----------------------------------------
+  l-main
+----------------------------------------*/
+.l-main {
+  margin-top: 100px;
+  @include under-large {
+    margin-top: 60px;
+  }
+}

@@ -1,0 +1,105 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  splide
+----------------------------------------*/
+/* ファーストビュースライダー */
+.p-fv__slider {
+  padding-block: 50px;
+  @include under-large {
+    padding-block: 30px;
+  }
+  .splide__track {
+    .splide__list {
+      .splide__slide {
+      }
+    }
+  }
+  /* Splideの矢印スタイル */
+  .splide__arrow {
+    background: transparent;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    cursor: pointer;
+    transition: opacity var(--hover-transition);
+    @include under-large {
+      width: 40px;
+      height: 40px;
+    }
+    @include under-medium {
+      width: 30px;
+      height: 30px;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  /* 左矢印 */
+  .splide__arrow--prev {
+    left: auto;
+    right: 100%;
+
+    &::before {
+      background-image: url("../img/same/arrow-prev.svg");
+    }
+  }
+
+  /* 右矢印 */
+  .splide__arrow--next {
+    right: auto;
+    left: 100%;
+    &::before {
+      background-image: url("../img/same/arrow-next.svg");
+    }
+  }
+
+  .splide__pagination {
+    bottom: 0;
+    .splide__pagination__page {
+      border-radius: unset;
+      height: 5px;
+      width: 5vw;
+      &.is-active {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+/* whyスライダー */
+// .p-why__slider {
+//   .splide__track {
+//     .splide__list {
+//     }
+//   }
+// }
+
+/* 会社概要スライダー */
+.c-about__slider {
+  margin-top: 30px;
+  margin-inline: calc(50% - 50vw);
+  .splide__track {
+    .splide__list {
+      .splide__slide {
+      }
+    }
+  }
+}

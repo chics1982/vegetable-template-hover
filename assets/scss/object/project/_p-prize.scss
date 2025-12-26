@@ -1,0 +1,74 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-prize
+----------------------------------------*/
+.p-prize {
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+}
+
+.p-prize__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.p-prize-title__en {
+  font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  color: var(--c-main);
+  font-weight: 700;
+}
+
+.p-prize-title__ja {
+  font-family: var(--ff-sans-serif-jp);
+  font-size: vwClamp(25, 44, $bp-xx-small, $bp-xx-large);
+  font-weight: 600;
+}
+
+.p-prize__list {
+  // 左上にマークがある場合は高さを調整
+  margin-top: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+  display: grid;
+  // 賞の数に合わせて調整
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  @include under-medium {
+    grid-template-columns: 1fr;
+    // 左上にマークがある場合は高さを調整
+    gap: vwClamp(30, 50, $bp-xx-small, $bp-medium);
+  }
+}
+
+.p-prize__item {
+  position: relative;
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: -15%;
+  //   left: -3%;
+  //   width: 25%;
+  //   aspect-ratio: 1711 / 2000;
+  //   background: url(../img/same/award.png) center center / cover no-repeat;
+  // }
+}
+
+.p-prize__thumb {
+  width: 100%;
+  aspect-ratio: 420 / 297;
+  position: relative;
+  z-index: -1;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.p-prize__text {
+  margin-top: 20px;
+  font-size: vwClamp(20, 24, $bp-medium, $bp-xx-large);
+  font-weight: 700;
+  text-align: center;
+  @include under-medium {
+    font-size: vwClamp(16, 25, $bp-xx-small, $bp-medium);
+  }
+}

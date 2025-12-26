@@ -1,0 +1,106 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  c-about
+----------------------------------------*/
+.c-about {
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+}
+
+.c-about__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.c-about__content {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: vwClamp(20, 50, $bp-medium, $bp-xx-large);
+  @include under-medium {
+    grid-template-columns: 1fr;
+  }
+}
+
+.c-about__thumb {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.c-about__body {
+  display: flex;
+  flex-direction: column;
+  gap: vwClamp(20, 50, $bp-medium, $bp-xx-large);
+}
+
+.c-about__title {
+  font-size: vwClamp(25, 40, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  @include under-medium {
+    text-align: center;
+  }
+}
+
+.c-about__text {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* c-about__slider */
+.c-about__slide-thumb {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* c-about__table */
+.c-about__table {
+  margin-top: 50px;
+  max-width: 740px;
+  margin-inline: auto;
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    gap: 5px;
+    @include under-small {
+      grid-template-columns: 1fr;
+    }
+  }
+  th,
+  td {
+    font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+    padding: 20px;
+    margin: -1px -1px 0 0;
+  }
+  th {
+    border-bottom: 2px solid var(--c-gray1);
+    text-align: center;
+    display: grid;
+    place-items: center;
+    @include under-small {
+      border: unset;
+      background: var(--c-background);
+    }
+  }
+  td {
+    border-bottom: 2px solid var(--c-gray2);
+    overflow-wrap: anywhere;
+    line-break: anywhere;
+    @include under-small {
+      border: unset;
+      margin-inline: auto;
+    }
+  }
+}

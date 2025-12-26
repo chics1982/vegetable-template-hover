@@ -1,0 +1,14 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-philosophy
+----------------------------------------*/
+.p-philosophy {
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+  overflow-x: clip;
+}
+
+.p-philosophy__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}

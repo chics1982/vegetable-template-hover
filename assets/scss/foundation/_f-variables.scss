@@ -1,0 +1,114 @@
+/*----------------------------------------
+  CSSカスタムプロバティ
+----------------------------------------*/
+:root {
+  /* color */
+  --c-white: #ffffff;
+  /* 白色 - ボタン文字・背景、ナビ背景、フッター文字、ハンバーガー（開時）、カード背景、ラベル文字、FVテキスト */
+  --c-black: #000000;
+  /* 黒色 - ハンバーガーのライン、FVテキスト（一部）、フォーム入力文字 */
+  --c-text: #222222;
+  /* 本文テキスト色 - body基本色、見出し、装飾ライン、コンタクトフォーム、トップへ戻るボタン */
+  --c-main: #0066b2;
+  /* メインカラー（青） - 見出し、ボタン全般、ラベル背景、ボーダー装飾、PRセクション、商品カード、Instagramタイトル */
+  --c-sub: #729b23;
+  /* サブカラー（緑） - ヘルパークラス(.u-sub-color等)で使用 */
+  --c-accent1: #c00000;
+  /* アクセントカラー（赤） - ナビのCTAボタン（お問い合わせ）、フォームの必須ラベル */
+  --c-background: #f5f5f5;
+  /* セクション背景色 - 商品一覧、レビュー、会社概要、メディア、ラインナップ、コンタクト、プライバシー */
+  --c-background-base: #ffffff;
+  /* ベース背景色 - body全体、ヘッダー */
+  --c-gray1: #8f8f8f;
+  /* グレー1（濃いめ） - 会社概要ボーダー、こだわり説明文、メディア日付、ヘルパーボーダー */
+  --c-gray2: #ccc;
+  /* グレー2（薄め） - テーブルボーダー、会社概要区切り線、フォームボーダー、placeholder、beliefボーダー */
+  --c-footer-bg: #222222;
+  /* フッター背景色 - フッターの背景専用 */
+  --c-eat-gradient: linear-gradient(90deg, #fff, #fff, #ddd, #ddd, #ddd, #fff, #fff);
+  /* 装飾用グラデーション - おすすめセクション装飾背景 */
+  --c-eat-gradient-reverse: linear-gradient(90deg, #ddd, #ddd, #fff, #fff, #fff, #ddd, #ddd);
+  /* 装飾用グラデーション（逆向き） - おすすめセクション装飾背景 */
+
+  /* hover */
+  --hover-opacity: 0.7;
+  /* ホバー時の透明度 - aタグ全般のホバー効果 */
+  --hover-transition: 0.3s ease;
+  /* ホバーのアニメーション速度 - aタグ、ボタン、ハンバーガー、スライダー矢印、メディアカード */
+  --c-main-hover: #004d86;
+  /* メインカラーのホバー時（暗め） - ソリッド系ボタン(.c-btn_solid)、送信ボタン(.c-btn_submit) */
+  --c-sub-hover: #729b23;
+  /* サブカラーのホバー時 - Instagramボタン(.c-btn_instagram)の背景・ボーダー */
+  --c-accent1-hover: #990000;
+  /* アクセントカラーのホバー時（暗め） - ナビのお問い合わせボタン(.l-nav__link) */
+
+
+  /* subtle effects - さりげない演出 */
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.06);
+  /* 柔らかい影 - 商品カード、レビューカード、ボタンホバー */
+  --radius-sm: 4px;
+  /* 小さい角丸 - 全ボタン(.c-btn_outline, .c-btn_solid, .c-btn_submit, .c-btn_instagram) */
+  --radius-md: 8px;
+  /* 中程度の角丸 - 商品カード、レビューカード、フィードバックカード、画像 */
+  --radius-lg: 12px;
+  /* 大きい角丸 - 将来的に大きめの要素で使用 */
+
+  /* selection - テキスト選択時 */
+  --c-selection-bg: rgba(0, 102, 178, 0.15);
+  /* テキスト選択時の背景色 - メインカラー15%透明度 */
+  --c-selection-text: inherit;
+  /* テキスト選択時の文字色 - 継承 */
+
+  /* z-index */
+  --z-focus-visible: 10000;
+  --z-hamburger: 1000;
+  --z-nav: 900;
+  --z-nav-back: 850;
+  --z-header: 800;
+
+  /* leading-trim */
+  --leading-trim: calc((1em - 1lh) / 2);
+
+}
+
+
+//----------------------------------------
+//  Sass関数（pxを変換）
+//----------------------------------------
+// pxをremに変換する関数
+$baseFontSize: 16px;
+
+@function rem($pxValue) {
+  @return calc(($pxValue / $baseFontSize) * 1rem);
+}
+
+//----------------------------------------
+//  Sass関数（clamp計算）
+//----------------------------------------
+// 共通のclamp計算ヘルパー関数
+@function calculate-clamp($min, $max, $minRange, $maxRange, $unit) {
+  $scale: calc(($max - $min) / ($maxRange - $minRange));
+  $baseOffset: calc($min - $minRange * $scale);
+
+  $minRem: calc($min / 16);
+  $maxRem: calc($max / 16);
+  $baseOffsetRem: calc($baseOffset / 16);
+  $scaleRem: calc($scale * 100);
+
+  @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$scaleRem}#{$unit}, #{$maxRem}rem);
+}
+
+// ビューポート幅に基づくclamp
+@function vwClamp($min, $max, $minViewport, $maxViewport) {
+  @return calculate-clamp($min, $max, $minViewport, $maxViewport, "vw");
+}
+
+// コンテナの幅に基づくclamp
+@function cqiClamp($min, $max, $minContainer, $maxContainer) {
+  @return calculate-clamp($min, $max, $minContainer, $maxContainer, "cqi");
+}
+
+// コンテナの高さに基づくclamp
+@function cqbClamp($min, $max, $minContainer, $maxContainer) {
+  @return calculate-clamp($min, $max, $minContainer, $maxContainer, "cqb");
+}

@@ -1,0 +1,148 @@
+@use "../../foundation/index" as *;
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  helpers
+----------------------------------------*/
+/*スクリーンリーダーから隠す*/
+.u-visually-hidden {
+  position: absolute;
+  white-space: nowrap; //ソース中の連続する半角スペース、タブ、改行を一つの半角スペースにまとめて表示します。自動的な折り返しは行いません。
+  width: 1px;
+  height: 1px;
+  overflow: clip;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0); //四方を0pxで切り抜き見えなくする。四角にしか切り抜けない。廃止予定
+  clip-path: inset(50%); //clipの進化版。四角以外にも切り抜ける。
+  margin: -1px;
+}
+
+/*br*/
+.under_xx-small {
+  @include xx-small {
+    display: none;
+  }
+}
+.under_x-small {
+  @include x-small {
+    display: none;
+  }
+}
+.under_small {
+  @include small {
+    display: none;
+  }
+}
+.under_medium {
+  @include medium {
+    display: none;
+  }
+}
+.under_large {
+  @include large {
+    display: none;
+  }
+}
+.under_x-large {
+  @include x-large {
+    display: none;
+  }
+}
+.under_xx-large {
+  @include xx-large {
+    display: none;
+  }
+}
+.over_xx-small {
+  @include under-xx-small {
+    display: none;
+  }
+}
+.over_x-small {
+  @include under-x-small {
+    display: none;
+  }
+}
+.over_small {
+  @include under-small {
+    display: none;
+  }
+}
+.over_medium {
+  @include under-medium {
+    display: none;
+  }
+}
+.over_large {
+  @include under-large {
+    display: none;
+  }
+}
+.over_x-large {
+  @include under-x-large {
+    display: none;
+  }
+}
+.over_xx-large {
+  @include under-xx-large {
+    display: none;
+  }
+}
+
+/*背景色が黒い時はbodyに.bkをつける*/
+.bk {
+
+  // 共通
+  .c-section-title__ja {
+    color: var(--c-sub);
+
+  }
+
+  // topページ
+  .p-popular__title-main,
+  .p-popular__title-sub,
+  .p-popular__text,
+  .google__discription,
+  .google__sougou-review,
+  .google__sougou-note {
+    color: var(--c-white);
+  }
+
+  // おすすめ商品
+  .p-lineup__title {
+    color: var(--c-white);
+
+  }
+  .p-recommend__wrapper {
+    &:nth-child(even) {
+      .p-recommend__summary-item,
+      .p-recommend__summary-title {
+        color: var(--c-white);
+        &::before {
+          background: var(--c-white);
+        }
+      }
+      .p-recommend__buy-body {
+        background: var(--c-white);
+      }
+    }
+  }
+  .p-recommend__ja,
+  .p-recommend__title-main {
+    color: var(--c-sub);
+    &::before,
+    &::after {
+      background: var(--c-sub);
+    }
+  }
+
+  // 会社概要
+  .thought__text{
+    color: var(--c-white);
+  }
+
+}
+
+img{
+  border: 1px solid var(--c-gray1);
+}

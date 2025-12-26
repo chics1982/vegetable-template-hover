@@ -1,0 +1,187 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-commitment
+----------------------------------------*/
+.p-commitment {
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+}
+
+.p-commitment__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.p-commitment__list {
+  margin-top: 80px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: vwClamp(20, 50, $bp-medium, $bp-xx-large);
+  position: relative;
+  @include under-medium {
+    margin-top: 50px;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    background: var(--c-main);
+    @include under-medium {
+      display: none;
+    }
+  }
+  &::before {
+    top: 0;
+    width: 1px;
+    height: 100%;
+  }
+  &::after {
+    bottom: 100%;
+    width: 30px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+  }
+}
+
+.p-commitment__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &:nth-child(even) {
+    grid-template-areas: "body thumb";
+    @include under-medium {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "thumb"
+        "body";
+    }
+    .p-commitment__body {
+      grid-area: body;
+      // padding-right: vwClamp(20, 50, $bp-medium, $bp-xx-large);
+      padding-right: 20px;
+      @include under-medium {
+        padding-right: unset;
+      }
+      .p-commitment__title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+        @include under-medium {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+    .p-commitment__thumb {
+      grid-area: thumb;
+    }
+    .p-commitment__title-ja {
+      text-align: right;
+      @include under-medium {
+        text-align: center;
+      }
+    }
+  }
+
+  &:nth-child(odd) {
+    grid-template-areas: "thumb body";
+    @include under-medium {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "thumb"
+        "body";
+    }
+    .p-commitment__body {
+      grid-area: body;
+      // padding-left: vwClamp(20, 50, $bp-medium, $bp-xx-large);
+      padding-left: 20px;
+      @include under-medium {
+        padding-left: unset;
+      }
+    }
+    .p-commitment__thumb {
+      grid-area: thumb;
+    }
+    .p-commitment__title-ja {
+      @include under-medium {
+        text-align: center;
+      }
+    }
+  }
+
+  .p-commitment__body {
+    width: 100%;
+    // padding-bottom: vwClamp(20, 50, $bp-medium, $bp-xx-large);
+    padding-bottom: 20px;
+    @include under-medium {
+      padding-bottom: unset;
+    }
+  }
+
+  .p-commitment__title {
+    color: var(--c-main);
+    font-weight: 700;
+    @include under-medium {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+
+  .p-commitment__title-en {
+    font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+    @include under-medium {
+      text-align: center;
+    }
+  }
+
+  .p-commitment__title-number {
+    margin-block: vwClamp(10, 20, $bp-xx-small, $bp-xx-large);
+    padding-inline: 10px;
+    display: inline-block;
+    font-size: vwClamp(45, 70, $bp-xx-small, $bp-xx-large);
+    border-top: 1px solid var(--c-main);
+    border-bottom: 1px solid var(--c-main);
+    @include under-medium {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .p-commitment__title-ja {
+    font-size: vwClamp(25, 30, $bp-xx-small, $bp-xx-large);
+  }
+}
+
+.p-commitment__text {
+  margin-top: 20px;
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.p-commitment__thumb {
+  padding-top: 30px;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  @include under-medium {
+    padding-top: unset;
+  }
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-commitment__declaration {
+  margin-top: 20px;
+  font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  text-align: center;
+  font-weight: 700;
+  color: var(--c-main);
+  word-break: keep-all;
+}

@@ -1,0 +1,71 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  Form Parts
+----------------------------------------*/
+/*各フォーム部品の基本スタイルを上書きします*/
+input:is([type="text"], [type="email"], [type="tel"], [type="url"], [type="search"]),
+textarea,
+select {
+  appearance: none;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid var(--c-gray2);
+  font-size: 16px;
+  color: var(--c-black);
+}
+input:is([type="number"], [type="password"]) {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid;
+  font-size: 16px;
+}
+/*フォーカス時*/
+input:is(
+    [type="text"],
+    [type="email"],
+    [type="tel"],
+    [type="url"],
+    [type="search"],
+    [type="number"],
+    [type="password"]
+  ):focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid rgb(77 144 254); //Chromeのデフォルト
+}
+/*エラー時*/
+.is-error {
+  input:is([type="text"], [type="email"], [type="tel"], [type="url"], [type="number"], [type="password"]),
+  textarea,
+  select,
+  .select-wrap {
+    color: red;
+    border-color: red;
+  }
+}
+/* placeholder */
+::placeholder {
+  color: var(--c-gray2);
+}
+/*select
+--------------------------*/
+.c-form__select-box {
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin-block: auto;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    rotate: 45deg;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,59 @@
+@use "../foundation/index" as *;
+/*----------------------------------------
+  l-hamburger
+----------------------------------------*/
+.l-hamburger {
+  display: none;
+  @include under-large {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: var(--z-hamburger);
+    width: 30px;
+    aspect-ratio: 1;
+    background: transparent;
+    display: grid;
+    place-items: center;
+    .l-hamburger__line {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: var(--c-black);
+      border-radius: 100vmax;
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: var(--c-black);
+        border-radius: 100vmax;
+        transition: rotate var(--hover-transition);
+      }
+      &::before {
+        top: -10px;
+      }
+      &::after {
+        bottom: -10px;
+      }
+    }
+    /* 閉じる */
+    &:is([aria-expanded="true"]) {
+      .l-hamburger__line {
+        background: transparent;
+        &::before {
+          top: 0;
+          rotate: 45deg;
+          background: var(--c-white);
+        }
+        &::after {
+          bottom: 0;
+          rotate: -45deg;
+          background: var(--c-white);
+        }
+      }
+    }
+  }
+}

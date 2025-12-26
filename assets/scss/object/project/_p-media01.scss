@@ -1,0 +1,103 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-media（メディア掲載セクション）
+----------------------------------------*/
+.p-media01{
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+  background: var(--c-background);
+  position: relative;
+  overflow: hidden;
+
+  /* Section Header */
+  .c-section-header {
+    text-align: center;
+    margin-bottom: vwClamp(40, 60, $bp-xx-small, $bp-xx-large);
+
+    &__en {
+      font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+      color: var(--c-main);
+      font-weight: 700;
+      letter-spacing: 0.3em;
+    }
+
+    &__title {
+      font-size: vwClamp(25, 44, $bp-xx-small, $bp-xx-large);
+      font-weight: 700;
+      color: var(--c-text);
+      margin-top: 10px;
+    }
+  }
+
+  /* Grid */
+  &__grid {
+    max-width: 1000px;
+    margin-inline: auto;
+    padding-inline: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: vwClamp(20, 40, $bp-xx-small, $bp-xx-large);
+
+    @include under-medium {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Card */
+  &__card {
+    position: relative;
+    padding: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+    background: transparent;
+    border: 1px solid rgba(0, 102, 178, 0.3); // --c-mainを薄くした色
+    transition: all 0.4s ease;
+
+    // 左上の角装飾
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 25px;
+      height: 25px;
+      border-top: 2px solid var(--c-main);
+      border-left: 2px solid var(--c-main);
+      transition: all var(--hover-transition);
+    }
+
+    // 右下の角装飾
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 25px;
+      height: 25px;
+      border-bottom: 2px solid var(--c-main);
+      border-right: 2px solid var(--c-main);
+      transition: all var(--hover-transition);
+    }
+
+    // &:hover {
+    //   border-color: rgba(255, 255, 255, 0.4);
+    //   transform: translateY(-3px);
+    //   &::before,
+    //   &::after {
+    //     width: 35px;
+    //     height: 35px;
+    //   }
+    // }
+  }
+
+  &__title {
+    font-size: vwClamp(20, 26, $bp-xx-small, $bp-xx-large);
+    font-weight: 700;
+    color: var(--c-main);
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+  }
+
+  &__subtitle {
+    font-size: vwClamp(14, 16, $bp-xx-small, $bp-xx-large);
+    color: var(--c-text);
+    line-height: 1.8;
+  }
+}

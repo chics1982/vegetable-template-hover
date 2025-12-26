@@ -1,0 +1,25 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-privacy
+----------------------------------------*/
+.p-privacy {
+  padding-block: 50px;
+}
+.p-privacy__inner {
+  padding-block: 50px;
+  background: var(--c-background);
+}
+.p-privacy__title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 24px;
+}
+.p-privacy__list {
+  padding-top: 30px;
+  max-width: 800px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+.p-privacy__item {
+  margin-bottom: 40px;
+}

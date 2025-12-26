@@ -1,0 +1,31 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-thanks
+----------------------------------------*/
+.p-thanks {
+}
+
+.p-thanks__inner {
+  padding-block: 200px;
+  padding-inline: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.p-thanks__title {
+  font-size: vwClamp(18, 30, $bp-xx-small, $bp-xx-large);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+.p-thanks__text {
+  font-size: 16px;
+  line-height: 1.5;
+  text-wrap: balance;
+  word-break: auto-phrase;
+}

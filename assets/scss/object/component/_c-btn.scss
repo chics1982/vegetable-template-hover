@@ -1,0 +1,160 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  ボタン
+----------------------------------------*/
+/*ボタンベース
+-----------------------------------*/
+// 親要素にはwidth:fit-content margin-inline:autoを指定
+.c-btn {
+  // display: flex;だとコンタクトフォーム7で中央揃えにならない
+  display: inline-block;
+  text-align: center;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+/* ボタン種類
+----------------------------------------*/
+// アウトライン系ボタン（白背景、メインカラーのボーダー）
+.c-btn_outline {
+  padding: 10px 20px;
+  font-size: vwClamp(18, 24, $bp-large, $bp-xx-large);
+  font-weight: 700;
+  color: var(--c-main);
+  background: var(--c-white);
+  border: 2px solid var(--c-main);
+  border-radius: var(--radius-sm);
+  transition: all var(--hover-transition);
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--c-white);
+      background: var(--c-main);
+      box-shadow: var(--shadow-soft);
+    }
+  }
+}
+
+// アウトライン系ボタン（細いボーダー）
+.c-btn_outline-thin {
+  @extend .c-btn_outline;
+  border-width: 1px;
+}
+
+// ソリッド系ボタン（メインカラー背景、白文字）
+.c-btn_solid {
+  padding: 12px 20px;
+  font-size: vwClamp(18, 24, $bp-large, $bp-xx-large);
+  font-weight: 700;
+  color: var(--c-white);
+  background: var(--c-main);
+  border-radius: var(--radius-sm);
+  transition: all var(--hover-transition);
+  @media (any-hover: hover) {
+    &:hover {
+      background: var(--c-main-hover);
+      box-shadow: var(--shadow-soft);
+    }
+  }
+}
+
+// 特殊系ボタン
+.c-btn_instagram {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid var(--c-main);
+  border-radius: var(--radius-sm);
+  transition: all var(--hover-transition);
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--c-white);
+      background: var(--c-sub-hover);
+      border-color: var(--c-sub-hover);
+      box-shadow: var(--shadow-soft);
+    }
+  }
+}
+
+.c-btn_submit {
+  padding: 15px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--c-white);
+  background: var(--c-main);
+  width: min(200px, 100%);
+  border-radius: var(--radius-sm);
+  transition: all var(--hover-transition);
+  @media (any-hover: hover) {
+    &:hover {
+      background: var(--c-main-hover);
+      box-shadow: var(--shadow-soft);
+    }
+  }
+}
+
+/* 個別のボタン（既存のクラス名との互換性のため）
+----------------------------------------*/
+// outline-thin系ボタン（フォントサイズが異なる）
+.c-btn_why {
+  @extend .c-btn_outline-thin;
+  font-size: vwClamp(18, 22, $bp-medium, $bp-xx-large);
+}
+
+.c-btn_google,
+.c-btn_feedback {
+  @extend .c-btn_outline-thin;
+  font-size: vwClamp(20, 25, $bp-large, $bp-xx-large);
+}
+
+// outline系ボタン（同じスタイル）
+.c-btn_popular,
+.c-btn_thanks {
+  @extend .c-btn_outline;
+  display: block;
+}
+
+// outline系ボタン（特殊プロパティ付き）
+.c-btn_recommend {
+  @extend .c-btn_outline;
+  word-break: keep-all;
+  display: block;
+}
+.c-btn_products {
+  @extend .c-btn_outline;
+  font-size: vwClamp(18, 20, $bp-xx-small, $bp-xx-large);
+  word-break: keep-all;
+  display: block;
+}
+
+// solid系ボタン（同じスタイル）
+.c-btn_page-head,
+.c-btn_producer {
+  @extend .c-btn_solid;
+}
+
+// solid系ボタン（特殊プロパティ付き）
+.c-btn_popular-buy,
+.c-btn_recommend-buy {
+  @extend .c-btn_solid;
+  width: 100%;
+}
+
+.c-btn_products-buy {
+  @extend .c-btn_solid;
+  width: 100%;
+  font-size: vwClamp(18, 20, $bp-xx-small, $bp-xx-large);
+}
+
+// .c-btn_disabled, /*a要素などdisabled属性を持たない要素をdisabled表示にする場合使用*/
+// button[disabled],
+// input[disabled] {
+//   background: #ccc;
+//   color: var(--c-white);
+//   &:hover,
+//   &:focus {
+//     cursor: default;
+//     // cursor: not-allowed;
+//     opacity: 1;
+//   }
+// }

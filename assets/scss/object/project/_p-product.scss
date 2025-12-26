@@ -1,0 +1,117 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-product
+----------------------------------------*/
+.p-product {
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+  background: var(--c-background);
+}
+
+.p-product__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.products__list {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.products__item {
+  padding-block: vwClamp(50, 80, $bp-xx-small, $bp-xx-large);
+  padding-inline: vwClamp(20, 50, $bp-xx-small, $bp-xx-large);
+  background: var(--c-white);
+}
+
+.p-product__tag {
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  color: var(--c-white);
+  background: var(--c-main);
+}
+
+.p-product__catch {
+  margin-top: 20px;
+  font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  // text-wrap: balance;
+  // word-break: auto-phrase;
+  span {
+    display: block;
+  }
+}
+
+.p-product__title {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  .p-product__title-sub {
+    font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+    font-weight: 700;
+  }
+
+  .p-product__title-main {
+    font-size: vwClamp(40, 50, $bp-xx-small, $bp-xx-large);
+    font-weight: 700;
+  }
+}
+
+.p-product__content {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  @include under-medium {
+    grid-template-columns: 1fr;
+  }
+}
+
+.p-product__thumb {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-product__text {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.p-product__pr {
+  margin-top: 60px;
+}
+
+.p-product__btn-wrapper {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.p-product__btn {
+  position: relative;
+  span {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--c-white);
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,51 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  c-pr
+----------------------------------------*/
+.c-pr {
+  padding-block: 50px 40px;
+  padding-inline: vwClamp(10, 50, $bp-xx-small, $bp-xx-large);
+  max-width: 800px;
+  margin-inline: auto;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.c-pr__title {
+  font-size: vwClamp(30, 40, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  position: absolute;
+  top: -0.7em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--c-white);
+  color: var(--c-main);
+  white-space: nowrap;
+  padding-inline: 10px;
+}
+
+.c-pr__list {
+  width: fit-content;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.c-pr__item {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  line-height: 1.5;
+  // font-weight: 700;
+  position: relative;
+  padding-left: 1.5em;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.3em;
+    left: 0;
+    width: 0.8em;
+    aspect-ratio: 1 / 1;
+    background: var(--c-main);
+    border-radius: 50%;
+  }
+}

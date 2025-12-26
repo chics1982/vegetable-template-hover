@@ -1,0 +1,34 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-media02 (pattern3)
+----------------------------------------*/
+.pattern3 {
+  background: var(--c-background);
+  padding-block: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+  padding-inline: 20px;
+}
+
+.pattern3 .container {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+}
+
+.pattern3 .media-block {
+  padding: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  background: var(--c-white);
+  border-left: 3px solid var(--c-main);
+}
+
+.pattern3 .media-block .title {
+  font-size: vwClamp(18, 22, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  color: var(--c-text);
+  margin-bottom: 10px;
+}
+
+.pattern3 .media-block .desc {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  color: var(--c-gray1);
+  line-height: 1.5;
+}

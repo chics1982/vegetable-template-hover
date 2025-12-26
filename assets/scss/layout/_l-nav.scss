@@ -1,0 +1,129 @@
+@use "../foundation/index" as *;
+/*----------------------------------------
+  l-nav
+----------------------------------------*/
+.l-nav {
+  display: block;
+}
+.l-nav__logo {
+  display: none;
+}
+.l-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  @include under-large {
+    gap: 25px;
+  }
+}
+.l-nav__item {
+  &:last-child {
+    .l-nav__link {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      color: var(--c-white);
+      background: var(--c-accent1);
+      height: 100px;
+      padding: 20px;
+      transition: background-color var(--transition-normal);
+      &:hover {
+        background: var(--c-accent1-hover);
+      }
+      .fa-envelope {
+        color: var(--c-white);
+        font-size: vwClamp(36, 40, $bp-large, $bp-xx-large);
+      }
+    }
+  }
+}
+.l-nav__link {
+  font-size: 18px;
+  font-weight: 700;
+  @include under-small {
+    font-size: 16px;
+  }
+}
+@include large {
+  .l-nav__focus-trap {
+    visibility: hidden;
+  }
+}
+@include under-large {
+  .l-nav {
+    position: fixed;
+    top: 0;
+    left: -40vw;
+    width: 40vw;
+    height: 100dvh;
+    background: var(--c-white);
+    z-index: var(--z-nav);
+    display: grid;
+    place-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      left 0.3s,
+      opacity 0.3s,
+      visibility 0.3s;
+    &.is-open {
+      left: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .l-nav__logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+    img {
+      width: 60px;
+      height: auto;
+    }
+    span {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+  .l-nav__list {
+    flex-direction: column;
+  }
+  .l-nav__item {
+    &:last-child {
+      .l-nav__link {
+        // gap: 10px;
+        height: 80px;
+        padding: 20px;
+        .fa-envelope {
+          color: var(--c-white);
+          font-size: vwClamp(25, 36, $bp-xx-small, $bp-x-large);
+        }
+      }
+    }
+  }
+}
+@include under-medium {
+  .l-nav {
+    left: -50vw;
+    width: 60vw;
+  }
+}
+/* nav-back */
+.l-nav-back {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-nav-back);
+  display: none;
+  &.is-open {
+    display: block;
+  }
+}

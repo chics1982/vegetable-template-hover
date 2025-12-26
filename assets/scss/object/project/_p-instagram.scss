@@ -1,0 +1,114 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-instagram
+----------------------------------------*/
+.p-instagram {
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+}
+
+.p-instagram__inner {
+  max-width: 840px;
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.p-instagram__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.p-instagram__logo {
+  aspect-ratio: 1 / 1;
+  width: 72px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-instagram__title {
+  font-size: vwClamp(25, 40, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.p-instagram__text {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  word-break: keep-all;
+  text-align: center;
+}
+
+.p-instagram__list {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  @include under-medium {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.p-instagram__item {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-instagram__btn {
+  margin-top: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.p-instagram__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.p-instagram__body-title {
+  font-size: vwClamp(18, 25, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  color: var(--c-main);
+  word-break: keep-all;
+  transition: color var(--hover-transition);
+}
+
+.p-instagram__body-text {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  word-break: keep-all;
+}
+
+.p-instagram__thumb {
+  aspect-ratio: 441 / 276;
+  width: 120px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+    transition: filter var(--hover-transition);
+  }
+}
+
+/* ボタンホバー時の子要素変化 */
+@media (any-hover: hover) {
+  .c-btn_instagram:hover {
+    .p-instagram__body-title {
+      color: var(--c-white);
+    }
+    .p-instagram__thumb img {
+      filter: brightness(0) invert(1); /* 白に変換 */
+    }
+  }
+}

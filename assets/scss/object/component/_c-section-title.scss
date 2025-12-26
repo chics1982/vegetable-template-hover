@@ -1,0 +1,54 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  c-section
+----------------------------------------*/
+.c-section-title_wrapper {
+  position: relative;
+  width: fit-content;
+  margin-inline: auto;
+  padding-inline: vwClamp(40, 80, $bp-xx-small, $bp-xx-large);
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-44%);
+    width: vwClamp(50, 80, $bp-xx-small, $bp-xx-large);
+    aspect-ratio: 200 / 357;
+    background: center center / cover no-repeat;
+  }
+  &::before {
+    left: 0;
+    background-image: url(../img/same/prize-left.png);
+  }
+  &::after {
+    right: 0;
+    background-image: url(../img/same/prize-right.png);
+  }
+}
+
+.c-section-title {
+  padding-inline: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  word-break: keep-all;
+  text-align: center;
+}
+
+.c-section-title__en {
+  font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  color: var(--c-main);
+  font-weight: 700;
+  // line-height: 1.5;
+  // &._prize {
+  //   color: var(--c-main);
+  // }
+}
+
+.c-section-title__ja {
+  font-size: vwClamp(25, 44, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  // line-height: 1.5;
+}

@@ -1,0 +1,25 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  c-to-top
+----------------------------------------*/
+.c-to-top {
+  padding-block: 50px;
+  width: fit-content;
+  margin-inline: auto;
+  a {
+    font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 80%;
+      left: 50%;
+      translate: -50% 0;
+      width: 30px;
+      aspect-ratio: 1 / 1;
+      border-right: 5px solid var(--c-text);
+      border-top: 5px solid var(--c-text);
+      rotate: -45deg;
+    }
+  }
+}

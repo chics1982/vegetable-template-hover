@@ -1,0 +1,68 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  c-furusato
+----------------------------------------*/
+.c-furusato {
+  padding-block: vwClamp(25, 50, $bp-medium, $bp-xx-large);
+}
+
+.c-furusato__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.c-furusato__head {
+  text-align: center;
+}
+
+.c-furusato__title {
+  display: inline-block;
+  font-size: vwClamp(16, 20, $bp-xx-small, $bp-xx-large);
+  letter-spacing: 0.05em;
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    width: 1px;
+    height: vwClamp(40, 60, $bp-xx-small, $bp-xx-large);
+    background: var(--c-text);
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+  }
+  &::before {
+    left: -1em;
+    rotate: -35deg;
+  }
+  &::after {
+    right: -1em;
+    rotate: 35deg;
+  }
+}
+
+.c-furusato__list {
+  margin-top: vwClamp(40, 60, $bp-medium, $bp-xx-large);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vwClamp(10, 20, $bp-xx-small, $bp-xx-large);
+  @include under-medium {
+    grid-template-columns: 1fr;
+  }
+}
+
+.c-furusato__item {
+  position: relative;
+}
+
+.c-furusato__disabled {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--c-white);
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

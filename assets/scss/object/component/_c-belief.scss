@@ -1,0 +1,85 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  c-belief
+----------------------------------------*/
+.c-belief {
+  .p-philosophy & {
+    margin-top: -80px;
+    position: relative;
+    z-index: -1;
+    @include under-medium {
+      margin-top: 50px;
+    }
+  }
+}
+.c-belief__thumb {
+  width: 100%;
+  aspect-ratio: 36 / 11;
+  overflow: hidden;
+  @include under-medium {
+    aspect-ratio: 16 / 9;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.c-belief__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.c-belief__content {
+  margin-top: -160px;
+  padding: 45px;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vwClamp(20, 30, $bp-medium, $bp-xx-large);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--c-gray2);
+  @include under-medium {
+    margin-top: -80px;
+    padding: 20px;
+    grid-template-columns: 1fr;
+  }
+}
+
+.c-belief__left {
+}
+
+.c-belief__title {
+  font-size: vwClamp(25, 35, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: vwClamp(20, 30, $bp-medium, $bp-xx-large);
+  align-items: center;
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 90%;
+    height: 1px;
+    background: var(--c-text);
+  }
+}
+
+.c-belief__catch {
+  margin-top: vwClamp(20, 40, $bp-xx-small, $bp-xx-large);
+  font-size: vwClamp(25, 45, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.c-belief__right {
+}
+
+.c-belief__text {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  line-height: 1.7;
+  text-align: justify;
+}

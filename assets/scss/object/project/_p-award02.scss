@@ -1,0 +1,219 @@
+@use "../../foundation/index" as *;
+
+/*----------------------------------------
+  p-awards-classic
+----------------------------------------*/
+.p-awards-classic {
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+  background: var(--c-background);
+  position: relative;
+}
+
+// .p-awards-classic::before {
+//   content: '';
+//   position: absolute;
+//   top: 20px;
+//   left: 20px;
+//   right: 20px;
+//   bottom: 20px;
+//   border: 1px solid rgba(0, 75, 128, 0.15);
+//   pointer-events: none;
+//   @include medium {
+//     top: 40px;
+//     left: 40px;
+//     right: 40px;
+//     bottom: 40px;
+//   }
+// }
+
+/* Header */
+.p-awards-classic .c-section-header {
+  text-align: center;
+  margin-bottom: vwClamp(40, 60, $bp-xx-small, $bp-xx-large);
+}
+
+.p-awards-classic__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.p-awards-classic__ornament-line {
+  width: 60px;
+  height: 1px;
+  background: var(--c-main);
+  @include medium {
+    width: 80px;
+  }
+}
+
+.p-awards-classic__ornament-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--c-main);
+  transform: rotate(45deg);
+}
+
+.p-awards-classic .c-section-header__en {
+  font-size: vwClamp(12, 14, $bp-xx-small, $bp-xx-large);
+  letter-spacing: 0.3em;
+  color: var(--c-main);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.p-awards-classic .c-section-header__title {
+  font-family: var(--ff-base);
+  font-size: vwClamp(22, 32, $bp-xx-small, $bp-xx-large);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--c-text);
+}
+
+/* Showcase */
+.p-awards-classic__showcase {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  @include medium {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Frame */
+.p-awards-classic__frame {
+  background: var(--c-white);
+  padding: vwClamp(15, 25, $bp-xx-small, $bp-xx-large);
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-radius: 4px;
+}
+
+.p-awards-classic__frame::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid var(--c-main);
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.p-awards-classic__corners {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  pointer-events: none;
+}
+
+.p-awards-classic__corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: var(--c-main);
+  border-style: solid;
+  border-width: 0;
+}
+
+.p-awards-classic__corner--tl {
+  top: 0;
+  left: 0;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.p-awards-classic__corner--tr {
+  top: 0;
+  right: 0;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.p-awards-classic__corner--bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.p-awards-classic__corner--br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.p-awards-classic__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 10px;
+}
+
+.p-awards-classic__image {
+  margin: 0 auto 15px;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.p-awards-classic__image img,
+.p-awards-classic__image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p-awards-classic__title {
+  font-family: var(--ff-base);
+  font-size: vwClamp(13, 15, $bp-xx-small, $bp-xx-large);
+  font-weight: 500;
+  color: var(--c-text);
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+
+/* Video */
+.p-awards-classic__image--video {
+  position: relative;
+  cursor: pointer;
+}
+
+.p-awards-classic__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--hover-transition), background var(--hover-transition);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  @include medium {
+    width: 60px;
+    height: 60px;
+  }
+  svg {
+    fill: var(--c-main);
+    stroke: var(--c-main);
+  }
+}
+
+.p-awards-classic__image--video:hover .p-awards-classic__play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--c-white);
+}

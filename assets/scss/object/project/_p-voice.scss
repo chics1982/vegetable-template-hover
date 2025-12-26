@@ -1,0 +1,134 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-voice
+----------------------------------------*/
+.p-voice {
+  padding-block: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+}
+
+.p-voice__inner {
+  @include under-medium {
+    max-width: 640px;
+  }
+}
+
+.p-voice__list {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.p-voice__item {
+}
+
+.p-voice__content {
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+  padding-block: 50px;
+  background: var(--c-background);
+  display: grid;
+  grid-template-columns: 1fr 40%;
+  gap: vwClamp(20, 50, $bp-xx-small, $bp-xx-large);
+  align-items: center;
+  @include under-medium {
+    grid-template-columns: 1fr;
+  }
+}
+
+.p-voice__thumb {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.p-voice__body {
+  // padding-block: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: vwClamp(20, 50, $bp-xx-small, $bp-xx-large);
+}
+
+.p-voice__name {
+  font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  text-align: center;
+  span {
+    font-size: vwClamp(16, 20, $bp-xx-small, $bp-xx-large);
+  }
+}
+
+.p-voice__product {
+  padding: 15px 20px;
+  background: var(--c-main);
+  color: var(--c-white);
+  font-size: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  text-align: center;
+}
+
+.p-voice__text {
+  font-size: vwClamp(18, 24, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  text-align: center;
+  // line-height: 1.5;
+}
+
+.p-voice__satisfaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.p-voice__satisfaction-text {
+  font-size: vwClamp(18, 25, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.p-voice__satisfaction-star {
+  // ここは動かさない
+  width: 180px;
+  // height: auto;
+  overflow: hidden;
+  // この下をそれぞれ調整する
+  // &._star1 {
+  //   width: 90px;
+  // }
+  // &._star2 {
+  //   width: 108px;
+  // }
+  // &._star3 {
+  //   width: 108px;
+  // }
+  // ここは動かさない
+  img {
+    width: 180px;
+    // height: 100%;
+  }
+}
+
+.p-voice__review {
+  margin-top: 50px;
+}
+
+.p-voice__review-title {
+  padding-bottom: 10px;
+  font-size: vwClamp(20, 25, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  border-bottom: 1px solid var(--c-text);
+  text-align: center;
+  // line-height: 1.5;
+  word-break: keep-all;
+}
+
+.p-voice__review-text {
+  margin-top: 30px;
+  padding-inline: 20px;
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  line-height: 1.5;
+}

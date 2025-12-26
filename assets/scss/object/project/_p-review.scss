@@ -1,0 +1,268 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  p-review
+----------------------------------------*/
+.p-review {
+  padding-block: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+  background: var(--c-background);
+}
+.p-review__inner {
+  @include under-large {
+    max-width: 640px;
+  }
+}
+/* Googleの口コミ
+----------------------------------------*/
+// .p-review__google {
+//   margin-bottom: vwClamp(50, 100, $bp-medium, $bp-xx-large);
+// }
+.google__discription {
+  margin-top: 20px;
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  text-align: center;
+  word-break: keep-all;
+}
+
+.google__sougou {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.google__sougou-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @include under-small {
+    flex-direction: column;
+  }
+}
+
+.google__sougou-note {
+}
+
+.google__sougou-review {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: vwClamp(25, 35, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.google__sougou-star {
+  // スターの数を調整する時はここのwidthを調整する。
+  width: 135px;
+  height: 25px;
+  overflow: hidden;
+  img {
+    width: 135px;
+    height: 100%;
+  }
+}
+
+.google__sougou-note {
+}
+
+.google__list {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  @include under-large {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.google__item {
+  padding: 20px;
+  background: var(--c-white);
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  gap: 20px;
+  justify-items: center;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+
+}
+
+.google__thumb {
+  width: 60px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.google__review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.google__name {
+  font-size: vwClamp(18, 23, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.google__star {
+  // ここは動かさない
+  width: 108px;
+  height: 20px;
+  overflow: hidden;
+  // この下をそれぞれ調整する
+  &._star1 {
+    width: 108px;
+  }
+  &._star2 {
+    width: 108px;
+  }
+  &._star3 {
+    width: 108px;
+  }
+  &._star4 {
+    width: 108px;
+  }
+  img {
+    // 動かさない
+    width: 108px;
+    height: 100%;
+  }
+}
+
+.google__text {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.google__logo {
+  width: 80px;
+  aspect-ratio: 1 / 1;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.google__btn {
+  width: fit-content;
+  margin-inline: auto;
+  margin-top: 50px;
+}
+
+/* feedback
+----------------------------------------*/
+.p-review__feedback {
+}
+
+.feedback__list {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  @include under-large {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.feedback__item {
+  padding: 20px;
+  background: var(--c-white);
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  gap: 20px;
+  justify-items: center;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+
+}
+
+.feedback__thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+}
+
+
+.feedback__name {
+  font-size: vwClamp(18, 23, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.feedback__item-title {
+  font-size: vwClamp(20, 25, $bp-large, $bp-xx-large);
+  font-weight: 700;
+  width: 100%;
+  background: var(--c-main);
+  color: var(--c-white);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  @include under-large {
+    font-size: vwClamp(20, 25, $bp-xx-small, $bp-large);
+  }
+}
+
+.feedback__text {
+  font-size: vwClamp(16, 18, $bp-xx-small, $bp-xx-large);
+  line-height: 1.5;
+}
+
+.feedback__satisfaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.feedback__satisfaction-text {
+  font-size: vwClamp(18, 20, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.feedback__satisfaction-star {
+  // ここは動かさない
+  width: 108px;
+  height: 20px;
+  overflow: hidden;
+  // この下をそれぞれ調整する
+  &._star1 {
+    width: 90px;
+  }
+  &._star2 {
+    width: 108px;
+  }
+  &._star3 {
+    width: 108px;
+  }
+  // ここは動かさない
+  img {
+    width: 108px;
+    height: 100%;
+  }
+}
+.feedback__btn {
+  margin-top: 50px;
+  text-align: center;
+}

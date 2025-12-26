@@ -1,0 +1,76 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  c-page-head
+----------------------------------------*/
+.c-page-head {
+}
+.c-page-head__fv {
+  padding-block: vwClamp(100, 200, $bp-xx-small, $bp-xx-large);
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+}
+.c-page-head__inner {
+  height: 100%;
+  &._narrow {
+    max-width: 840px;
+    @include under-medium {
+      max-width: 640px;
+    }
+  }
+}
+.c-page-head__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: vwClamp(30, 50, $bp-xx-small, $bp-xx-large);
+  color: var(--c-white);
+}
+.c-page-head__title {
+  font-size: vwClamp(30, 45, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  // text-wrap: balance;
+  // word-break: auto-phrase;
+  text-align: center;
+  // line-height: 1.5;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.c-page-head__text {
+  font-size: vwClamp(16, 20, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  // text-wrap: balance;
+  // word-break: auto-phrase;
+  text-align: center;
+  line-height: 1.5;
+}
+.c-page-head__discription {
+  margin-block: vwClamp(30, 50, $bp-xx-small, $bp-xx-large) 30px;
+  font-size: vwClamp(18, 20, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+  line-break: anywhere;
+  line-height: 1.5;
+  text-align: justify;
+}
+.c-page-head__btn {
+  position: relative;
+  span {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--c-white);
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,87 @@
+@use "../../foundation/index" as *;
+/*----------------------------------------
+  c-producer
+----------------------------------------*/
+.c-producer {
+  display: grid;
+  gap: 30px;
+  .p-philosophy & {
+    margin-top: 50px;
+    grid-template-columns: 45% 1fr;
+    @include under-medium {
+      grid-template-columns: 1fr;
+    }
+  }
+  .p-company & {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    @include under-medium {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+.c-producer__thumb {
+  width: 100%;
+  overflow: hidden;
+  .p-philosophy & {
+    aspect-ratio: 1 / 1.1;
+    @include under-medium {
+      aspect-ratio: 4 / 3;
+    }
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+  .p-company & {
+    aspect-ratio: 4 / 3;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.c-producer__body {
+  @include medium {
+    .p-philosophy & {
+      padding-block: 10px 100px;
+    }
+  }
+}
+
+.c-producer__title {
+  font-size: vwClamp(20, 25, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.c-producer__name {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+}
+
+.c-producer__name-ja {
+  font-size: vwClamp(25, 40, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.c-producer__name-en {
+  font-size: vwClamp(16, 25, $bp-xx-small, $bp-xx-large);
+  font-weight: 700;
+}
+
+.c-producer__text {
+  margin-top: vwClamp(20, 30, $bp-xx-small, $bp-xx-large);
+  font-size: vwClamp(16, 20, $bp-xx-small, $bp-xx-large);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.c-producer__btn {
+  margin-top: 40px;
+  width: fit-content;
+  margin-inline: auto;
+}

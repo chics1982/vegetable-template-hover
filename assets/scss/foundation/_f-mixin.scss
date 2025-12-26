@@ -1,0 +1,108 @@
+//----------------------------------------
+//  ブレイクポイント
+//----------------------------------------
+// デスクトップファーストの場合
+$bp-xx-small: 351;
+$bp-x-small: 376;
+$bp-small: 577;
+$bp-medium: 769;
+$bp-large: 1001;
+$bp-x-large: 1201;
+$bp-xx-large: 1401;
+
+// モバイルファーストの場合
+// $bp-xx-small: 350;
+// $bp-x-small: 375;
+// $bp-small: 576;
+// $bp-medium: 768;
+// $bp-large: 992;
+// $bp-x-large: 1200;
+// $bp-xx-large: 1400;
+
+// 以上のメディアクエリ
+@mixin min-media($bp) {
+  @media (min-width: #{$bp}px) {
+    @content;
+  }
+}
+
+// 未満のメディアクエリ
+@mixin max-media($bp) {
+  @media (max-width: #{$bp}px) {
+    @content;
+  }
+}
+
+// 以上のメディアクエリのミックスイン
+@mixin xx-small {
+  @include min-media($bp-xx-small) {
+    @content;
+  }
+}
+@mixin x-small {
+  @include min-media($bp-x-small) {
+    @content;
+  }
+}
+@mixin small {
+  @include min-media($bp-small) {
+    @content;
+  }
+}
+@mixin medium {
+  @include min-media($bp-medium) {
+    @content;
+  }
+}
+@mixin large {
+  @include min-media($bp-large) {
+    @content;
+  }
+}
+@mixin x-large {
+  @include min-media($bp-x-large) {
+    @content;
+  }
+}
+@mixin xx-large {
+  @include min-media($bp-xx-large) {
+    @content;
+  }
+}
+
+// 未満のメディアクエリのミックスイン
+@mixin under-xx-small {
+  @include max-media($bp-xx-small - 1) {
+    @content;
+  }
+}
+@mixin under-x-small {
+  @include max-media($bp-x-small - 1) {
+    @content;
+  }
+}
+@mixin under-small {
+  @include max-media($bp-small - 1) {
+    @content;
+  }
+}
+@mixin under-medium {
+  @include max-media($bp-medium - 1) {
+    @content;
+  }
+}
+@mixin under-large {
+  @include max-media($bp-large - 1) {
+    @content;
+  }
+}
+@mixin under-x-large {
+  @include max-media($bp-x-large - 1) {
+    @content;
+  }
+}
+@mixin under-xx-large {
+  @include max-media($bp-xx-large - 1) {
+    @content;
+  }
+}
